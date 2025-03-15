@@ -64,3 +64,6 @@ body {
     list-style-type: none;
   }
 }
+input {
+  @apply w-full bg-darkGray text-white  px-4 py-2 rounded-lg border border-darkGray  focus:ring-0 outline-none;
+}

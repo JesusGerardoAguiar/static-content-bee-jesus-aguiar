@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const MarkdownNavigator = () => {
+const MarkdownNavigator = ({ openModal }) => {
   const [routes, setRoutes] = useState([]);
   const [currentPath, setCurrentPath] = useState([]);
 
@@ -59,20 +59,27 @@ const MarkdownNavigator = () => {
   const currentLevel = getCurrentLevel(tree, currentPath);
 
   return (
-    <div className="w-[60%]">
-      {currentPath.length > 0 && <button onClick={handleBack}>⬅ Back</button>}
-      <ul className="flex flex-row items-baseline">
-        {currentLevel &&
-          Object.entries(currentLevel).map(([name, value]) => (
-            <li key={name} className="px-5">
-              {value ? (
-                <button onClick={() => handleNavigation(name)}>{name}/</button>
-              ) : (
-                <Link to={`/${[...currentPath, name].join("/")}`}>{name}</Link>
-              )}
-            </li>
-          ))}
-      </ul>
+    <div className="w-full flex flex-row justify-between">
+      <div className="flex flex-row items-baseline">
+        {currentPath.length > 0 && <button onClick={handleBack}>⬅ Back</button>}
+        <ul className="flex flex-row items-baseline">
+          {currentLevel &&
+            Object.entries(currentLevel).map(([name, value]) => (
+              <li key={name} className="px-5">
+                {value ? (
+                  <button onClick={() => handleNavigation(name)}>
+                    {name}/
+                  </button>
+                ) : (
+                  <Link to={`/${[...currentPath, name].join("/")}`}>
+                    {name}
+                  </Link>
+                )}
+              </li>
+            ))}
+        </ul>
+      </div>
+      <button onClick={() => openModal()}>Open modal</button>
     </div>
   );
 };
