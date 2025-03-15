@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const MarkdownNavigator = ({ openModal }) => {
+const MarkdownNavigator = ({
+  openModal,
+  refreshFetching,
+  setRefreshFetching,
+}) => {
   const [routes, setRoutes] = useState([]);
   const [currentPath, setCurrentPath] = useState([]);
 
@@ -16,10 +20,11 @@ const MarkdownNavigator = ({ openModal }) => {
       } catch (error) {
         console.error("Error fetching routes:", error);
       }
+      setRefreshFetching(false);
     };
 
     fetchRoutes();
-  }, []);
+  }, [refreshFetching, setRefreshFetching]);
 
   const buildTree = (paths) => {
     const tree = {};

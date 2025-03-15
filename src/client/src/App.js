@@ -9,6 +9,8 @@ Modal.setAppElement("#root");
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [refreshFetching, setRefreshFetching] = useState(false);
+
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
@@ -18,9 +20,14 @@ function App() {
         modalIsOpen={modalIsOpen}
         openModal={openModal}
         closeModal={closeModal}
+        setRefreshFetching={setRefreshFetching}
       />
       <Router>
-        <MarkdownNavigator openModal={openModal} />
+        <MarkdownNavigator
+          openModal={openModal}
+          setRefreshFetching={setRefreshFetching}
+          refreshFetching={refreshFetching}
+        />
         <Routes>
           <Route path="*" element={<PageRenderer />} />
         </Routes>

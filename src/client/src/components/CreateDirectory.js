@@ -12,7 +12,7 @@ const customStyles = {
   },
 };
 
-const CreateDirectory = ({ modalIsOpen, closeModal, onSubmit }) => {
+const CreateDirectory = ({ modalIsOpen, closeModal, setRefreshFetching }) => {
   const [slug, setSlug] = useState("");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -52,6 +52,7 @@ const CreateDirectory = ({ modalIsOpen, closeModal, onSubmit }) => {
       if (!response.ok) throw new Error("Failed to upload");
 
       alert("Upload successful!");
+      setRefreshFetching();
       closeModal();
     } catch (error) {
       console.error("Upload error:", error);
