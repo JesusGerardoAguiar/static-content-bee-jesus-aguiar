@@ -8,7 +8,12 @@ function PageRenderer() {
   const [content, setContent] = useState("");
   const location = useLocation();
   useEffect(() => {
-    fetch(`${process.ENV.API_URL}${location.pathname.replace("/review", "")}`)
+    fetch(
+      `https://bee-api-markdown-rvo6c.ondigitalocean.app${location.pathname.replace(
+        "/review",
+        ""
+      )}`
+    )
       .then((res) => res.text())
       .then((data) => setContent(data));
   }, [location]);

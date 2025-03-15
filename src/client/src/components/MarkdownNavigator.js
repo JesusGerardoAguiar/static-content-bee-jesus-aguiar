@@ -8,7 +8,9 @@ const MarkdownNavigator = () => {
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const response = await fetch(`${process.ENV.API_URL + `api/routes`}`);
+        const response = await fetch(
+          `https://bee-api-markdown-rvo6c.ondigitalocean.app/api/routes`
+        );
         const data = await response.json();
         setRoutes(data.routes);
       } catch (error) {
