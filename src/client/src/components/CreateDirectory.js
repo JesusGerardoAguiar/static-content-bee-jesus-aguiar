@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
+import { API_URL } from "../utils";
 
 const customStyles = {
   content: {
@@ -41,13 +42,10 @@ const CreateDirectory = ({ modalIsOpen, closeModal, setRefreshFetching }) => {
     formData.append("file", file);
 
     try {
-      const response = await fetch(
-        `https://bee-api-markdown-rvo6c.ondigitalocean.app/api/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(`${API_URL}/api/upload`, {
+        method: "POST",
+        body: formData,
+      });
 
       if (!response.ok) throw new Error("Failed to upload");
 

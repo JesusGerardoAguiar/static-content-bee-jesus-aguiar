@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { API_URL } from "../utils";
 const MarkdownNavigator = ({
   openModal,
   refreshFetching,
@@ -12,9 +12,7 @@ const MarkdownNavigator = ({
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const response = await fetch(
-          `https://bee-api-markdown-rvo6c.ondigitalocean.app/api/routes`
-        );
+        const response = await fetch(`${API_URL}/api/routes`);
         const data = await response.json();
         setRoutes(data.routes);
       } catch (error) {
