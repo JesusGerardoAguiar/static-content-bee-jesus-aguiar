@@ -1,14 +1,13 @@
 import express from "express";
-import fs from "fs";
-import matter from "gray-matter";
-import { marked } from "marked";
 import path from "path";
-import { renderPage, cleanPath } from "./utils";
+import { renderPage, cleanPath } from "./utils/index.js";
+import cors from "cors";
 const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const CONTENT_DIR = path.join(__dirname, "content");
 const TEMPLATE_PATH = path.join(__dirname, "template.html");
+app.use(cors({ origin: "*" }));
 
 app.use(express.static("public"));
 

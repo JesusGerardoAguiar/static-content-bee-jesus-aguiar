@@ -1,3 +1,6 @@
+import * as fs from "fs";
+import matter from "gray-matter";
+import { marked } from "marked";
 export const renderPage = (markdownFile, templatePath) => {
   if (!fs.existsSync(markdownFile)) return null;
 
