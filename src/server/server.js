@@ -1,6 +1,6 @@
 import express from "express";
 import path from "path";
-import { renderPage, cleanPath } from "./utils/index.js";
+import { renderPage, cleanPath, getMarkdownRoutes } from "./utils/index.js";
 import cors from "cors";
 const __dirname = path.resolve();
 const app = express();
@@ -10,6 +10,15 @@ const TEMPLATE_PATH = path.join(__dirname, "template.html");
 app.use(cors({ origin: "*" }));
 
 app.use(express.static("public"));
+
+app.get("/api/routes", (req, res) => {
+  try {
+    const routes = getMarkdownRoutes(CONTENT_DIR);
+    res.json({ routes });
+  } catch (error) {
+    res.status(500).json({ error: "Error reading markdown files" });
+  }
+});
 
 app.get("*", (req, res) => {
   const requestPath = cleanPath(req);
