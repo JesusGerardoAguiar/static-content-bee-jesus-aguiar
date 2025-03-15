@@ -8,7 +8,7 @@ function PageRenderer() {
   const [content, setContent] = useState("");
   const location = useLocation();
   useEffect(() => {
-    fetch(`http://localhost:3000${location.pathname.replace("/review", "")}`)
+    fetch(`${process.ENV.API_URL}${location.pathname.replace("/review", "")}`)
       .then((res) => res.text())
       .then((data) => setContent(data));
   }, [location]);

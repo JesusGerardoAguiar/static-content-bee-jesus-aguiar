@@ -8,7 +8,7 @@ const MarkdownNavigator = () => {
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/routes");
+        const response = await fetch(`${process.ENV.API_URL + `api/routes`}`);
         const data = await response.json();
         setRoutes(data.routes);
       } catch (error) {
