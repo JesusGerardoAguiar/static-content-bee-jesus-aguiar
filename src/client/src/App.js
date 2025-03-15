@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PageRenderer from "./components/PageRenderer";
-import Navbar from "./components/Navbar";
-
+import MarkdownNavigator from "./components/MarkdownNavigator";
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="*" element={<PageRenderer />} />
-      </Routes>
-    </Router>
+    <div className="p-9">
+      <Router>
+        <MarkdownNavigator />
+        <Routes>
+          <Route path="*" element={<PageRenderer />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
