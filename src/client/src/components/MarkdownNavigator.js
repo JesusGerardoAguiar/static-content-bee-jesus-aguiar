@@ -79,7 +79,7 @@ const MarkdownNavigator = ({ openModal }) => {
             ))}
         </ul>
       </div>
-      <button onClick={() => openModal()}>Open modal</button>
+      <button onClick={() => openModal()}>Generate New Directory</button>
     </div>
   );
 };

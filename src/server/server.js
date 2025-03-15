@@ -52,7 +52,7 @@ app.get("*", (req, res) => {
   if (pageHtml) {
     res.send(pageHtml);
   } else {
-    res.status(404).send("<h1>404 - Page Not Found</h1>");
+    res.status(404).send("<h1>Navigate through a valid directory!</h1>");
   }
 });
 
