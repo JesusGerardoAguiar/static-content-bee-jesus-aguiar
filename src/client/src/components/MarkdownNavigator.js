@@ -12,7 +12,7 @@ const MarkdownNavigator = ({
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/routes`);
+        const response = await fetch(`${API_URL}api/routes`);
         const data = await response.json();
         setRoutes(data.routes);
       } catch (error) {

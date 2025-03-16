@@ -1,1 +1,1 @@
-export const API_URL = "https://bee-api-markdown-rvo6c.ondigitalocean.app";
+export const API_URL = process.env.REACT_APP_API_BASE;

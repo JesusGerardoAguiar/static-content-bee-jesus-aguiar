@@ -42,7 +42,7 @@ const CreateDirectory = ({ modalIsOpen, closeModal, setRefreshFetching }) => {
     formData.append("file", file);
 
     try {
-      const response = await fetch(`${API_URL}/api/upload`, {
+      const response = await fetch(`${API_URL}api/upload`, {
         method: "POST",
         body: formData,
       });
