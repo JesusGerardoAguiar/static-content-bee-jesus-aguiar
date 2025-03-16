@@ -68,8 +68,8 @@ const CreateDirectory = ({ modalIsOpen, closeModal, setRefreshFetching }) => {
       contentLabel="Generate Directory Modal"
     >
       <h2>Generate New Directory</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className="flex flex-col">
+        <label className="flex flex-col my-3">
           Slug: (e.g. /directory-name)
           <input
             type="text"
@@ -77,19 +77,20 @@ const CreateDirectory = ({ modalIsOpen, closeModal, setRefreshFetching }) => {
             onChange={(e) => setSlug(e.target.value)}
             placeholder="Enter directory slug"
             required
-            className="mb-5"
+            className="my-3"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Upload Markdown File:
           <input
             type="file"
             accept=".md"
             onChange={handleFileChange}
             required
+            className="my-3"
           />
         </label>
-        <button type="submit" className="my-5">
+        <button type="submit" className="w-fit my-5 ">
           {loading ? "Uploading..." : "Upload"}
         </button>
       </form>

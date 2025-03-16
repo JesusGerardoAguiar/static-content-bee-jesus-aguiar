@@ -65,5 +65,5 @@ body {
   }
 }
 input {
-  @apply w-full bg-darkGray text-white  px-4 py-2 rounded-lg border border-darkGray  focus:ring-0 outline-none;
+  @apply w-fit  text-black  px-4 py-2 rounded-lg border focus:border-blue border-darkGray  focus:ring-0 outline-none;
 }
