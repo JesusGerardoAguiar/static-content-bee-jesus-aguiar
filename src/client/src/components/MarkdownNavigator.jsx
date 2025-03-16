@@ -64,7 +64,9 @@ const MarkdownNavigator = ({
   return (
     <div className="w-full flex flex-row justify-between">
       <div className="flex flex-row items-baseline">
-        {currentPath.length > 0 && <button onClick={handleBack}>⬅ Back</button>}
+        {currentPath.length > 0 && (
+          <button onClick={handleBack}>⬅ Back</button>
+        )}
         <ul className="flex flex-row items-baseline">
           {currentLevel &&
             Object.entries(currentLevel).map(([name, value]) => (
